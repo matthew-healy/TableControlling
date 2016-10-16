@@ -79,6 +79,23 @@ class TableSectionTests: XCTestCase {
         XCTAssertEqual(4, tableSection.numberOfItems)
     }
     
+    // MARK: item(atRow:_) tests
+    
+    func test_itemAtRow_noCellAtGivenRow_reutrnsNil() {
+        let tableSection = TableSection<None, None, None>()
+        XCTAssertNil(tableSection.item(atRow: 0))
+    }
+    
+    func test_itemAtRow_0_cellAIsAtRow0_returnsA() {
+        let tableSection = TableSection<None, String, None>(cells: ["A"])
+        XCTAssertEqual("A", tableSection.item(atRow: 0))
+    }
+    
+    func test_itemAtRow_4_cell310IsAtRow4_returns310() {
+        let tableSection = TableSection<None, Int, None>(cells: [0, 0, 0, 0, 310])
+        XCTAssertEqual(310, tableSection.item(atRow: 4))
+    }
+    
 }
 
 extension TableSection {

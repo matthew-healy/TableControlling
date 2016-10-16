@@ -26,6 +26,11 @@ struct TableSection<Header: Equatable, Cell: Equatable, Footer: Equatable>: Equa
     var numberOfItems: Int {
         return cells.count
     }
+    
+    func item(atRow row: Int) -> Cell? {
+        guard row < numberOfItems else { return nil }
+        return cells[row]
+    }
 }
 
 func ==<Header: Equatable, Cell: Equatable, Footer: Equatable>(
