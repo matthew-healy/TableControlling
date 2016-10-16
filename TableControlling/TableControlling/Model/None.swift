@@ -1,5 +1,3 @@
-import Foundation
-
 /**
  `None` represents the absence of a value.
  

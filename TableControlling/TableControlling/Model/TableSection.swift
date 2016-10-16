@@ -1,5 +1,3 @@
-import Foundation
-
 /**
  A `TableSection` is a view model which represents a section in a `UITableView`.
  
