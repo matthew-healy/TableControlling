@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		345B4E711DB3DB6D001D1BB1 /* TableControlling.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 345B4E671DB3DB6D001D1BB1 /* TableControlling.framework */; };
 		345B4E781DB3DB6D001D1BB1 /* TableControlling.h in Headers */ = {isa = PBXBuildFile; fileRef = 345B4E6A1DB3DB6D001D1BB1 /* TableControlling.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		345B4E861DB3DE0F001D1BB1 /* None.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B4E851DB3DE0F001D1BB1 /* None.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +28,7 @@
 		345B4E6B1DB3DB6D001D1BB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		345B4E701DB3DB6D001D1BB1 /* TableControllingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TableControllingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		345B4E771DB3DB6D001D1BB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		345B4E851DB3DE0F001D1BB1 /* None.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = None.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 		345B4E691DB3DB6D001D1BB1 /* TableControlling */ = {
 			isa = PBXGroup;
 			children = (
+				345B4E821DB3DD9E001D1BB1 /* Model */,
 				345B4E6A1DB3DB6D001D1BB1 /* TableControlling.h */,
 				345B4E6B1DB3DB6D001D1BB1 /* Info.plist */,
 			);
@@ -78,9 +81,25 @@
 		345B4E741DB3DB6D001D1BB1 /* TableControllingTests */ = {
 			isa = PBXGroup;
 			children = (
+				345B4E811DB3DD91001D1BB1 /* ModelTests */,
 				345B4E771DB3DB6D001D1BB1 /* Info.plist */,
 			);
 			path = TableControllingTests;
+			sourceTree = "<group>";
+		};
+		345B4E811DB3DD91001D1BB1 /* ModelTests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ModelTests;
+			sourceTree = "<group>";
+		};
+		345B4E821DB3DD9E001D1BB1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				345B4E851DB3DE0F001D1BB1 /* None.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,10 +164,12 @@
 				TargetAttributes = {
 					345B4E661DB3DB6D001D1BB1 = {
 						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 					345B4E6F1DB3DB6D001D1BB1 = {
 						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -193,6 +214,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				345B4E861DB3DE0F001D1BB1 /* None.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +338,7 @@
 		345B4E7C1DB3DB6D001D1BB1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -327,6 +350,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.liamhealy.matthew.TableControlling;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -334,6 +358,7 @@
 		345B4E7D1DB3DB6D001D1BB1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -352,10 +377,13 @@
 		345B4E7F1DB3DB6D001D1BB1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = TableControllingTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.liamhealy.matthew.TableControllingTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -363,6 +391,8 @@
 		345B4E801DB3DB6D001D1BB1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = TableControllingTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.liamhealy.matthew.TableControllingTests;
