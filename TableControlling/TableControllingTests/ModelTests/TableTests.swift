@@ -71,6 +71,23 @@ class TableTests: XCTestCase {
         XCTAssertNotEqual(rhs, lhs)
     }
     
+    // MARK numberOfSections tests
+    
+    func test_numberOfSections_emptySections_returns0() {
+        let table = Table<None, None, None, None, None>()
+        XCTAssertEqual(0, table.numberOfSections)
+    }
+    
+    func test_numberOfSections_threeSections_returns3() {
+        let sections = [
+            TableSection<None, None, None>(),
+            TableSection<None, None, None>(),
+            TableSection<None, None, None>()
+        ]
+        let table = Table<None, None, None, None, None>(sections: sections)
+        XCTAssertEqual(3, table.numberOfSections)
+    }
+    
 }
 
 extension Table {

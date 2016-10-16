@@ -30,6 +30,13 @@ struct Table<
         self.sections = sections
         self.footer = footer
     }
+    
+    /**
+     The number of sections in the `Table`.
+    */
+    var numberOfSections: Int {
+        return sections.count
+    }
 }
 
 func ==<
