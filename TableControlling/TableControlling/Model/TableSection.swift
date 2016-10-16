@@ -38,8 +38,8 @@ struct TableSection<Header: Equatable, Cell: Equatable, Footer: Equatable>: Equa
      - returns: The cell's view model, if it exists, or `nil` otherwise.
     */
     func item(atRow row: Int) -> Cell? {
-        guard row < numberOfItems else { return nil }
-        return cells[row]
+        guard let cell = cells[safe: row] else { return nil }
+        return cell
     }
 }
 

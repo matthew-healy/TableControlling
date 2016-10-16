@@ -46,8 +46,7 @@ struct Table<
      - returns: The `numberOfItems` in the secition, if it exists, or `0` otherwise.
     */
     func numberOfItems(inSection section: Int) -> Int {
-        guard section < numberOfSections else { return 0 }
-        return sections[section].numberOfItems
+        return sections[safe: section]?.numberOfItems ?? 0
     }
     
     /**
@@ -59,8 +58,7 @@ struct Table<
     */
     func item(at indexPath: IndexPath) -> Cell? {
         let (section, row) = (indexPath.section, indexPath.row)
-        guard section < numberOfSections else { return nil }
-        return sections[section].item(atRow: row)
+        return sections[safe: section]?.item(atRow: row)
     }
 }
 
