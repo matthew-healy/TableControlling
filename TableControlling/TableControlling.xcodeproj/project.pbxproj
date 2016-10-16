@@ -10,6 +10,8 @@
 		345B4E711DB3DB6D001D1BB1 /* TableControlling.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 345B4E671DB3DB6D001D1BB1 /* TableControlling.framework */; };
 		345B4E781DB3DB6D001D1BB1 /* TableControlling.h in Headers */ = {isa = PBXBuildFile; fileRef = 345B4E6A1DB3DB6D001D1BB1 /* TableControlling.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		345B4E861DB3DE0F001D1BB1 /* None.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B4E851DB3DE0F001D1BB1 /* None.swift */; };
+		345B4E881DB3E04B001D1BB1 /* TableSectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B4E871DB3E04B001D1BB1 /* TableSectionTests.swift */; };
+		345B4E8A1DB3E056001D1BB1 /* TableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B4E891DB3E056001D1BB1 /* TableSection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +31,8 @@
 		345B4E701DB3DB6D001D1BB1 /* TableControllingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TableControllingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		345B4E771DB3DB6D001D1BB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		345B4E851DB3DE0F001D1BB1 /* None.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = None.swift; sourceTree = "<group>"; };
+		345B4E871DB3E04B001D1BB1 /* TableSectionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableSectionTests.swift; sourceTree = "<group>"; };
+		345B4E891DB3E056001D1BB1 /* TableSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableSection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +94,7 @@
 		345B4E811DB3DD91001D1BB1 /* ModelTests */ = {
 			isa = PBXGroup;
 			children = (
+				345B4E871DB3E04B001D1BB1 /* TableSectionTests.swift */,
 			);
 			path = ModelTests;
 			sourceTree = "<group>";
@@ -98,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				345B4E851DB3DE0F001D1BB1 /* None.swift */,
+				345B4E891DB3E056001D1BB1 /* TableSection.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -214,6 +220,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				345B4E8A1DB3E056001D1BB1 /* TableSection.swift in Sources */,
 				345B4E861DB3DE0F001D1BB1 /* None.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -222,6 +229,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				345B4E881DB3E04B001D1BB1 /* TableSectionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
