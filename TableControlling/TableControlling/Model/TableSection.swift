@@ -1,7 +1,7 @@
 /**
- A `TableSection` is a view model which represents a section in a `UITableView`.
+ A view model which represents a section in a `UITableView`.
  
- It has optional and optional `Header` and `Footer`, and a non-optional array 
+ It has an optional `Header` and `Footer`, and a non-optional array
  of `Cell`s. The `Header`, `Footer` and `Cell` types are `Equatable` in order
  for us to equate entire `TableSection`s.
 */
