@@ -23,10 +23,20 @@ struct TableSection<Header: Equatable, Cell: Equatable, Footer: Equatable>: Equa
         self.footer = footer
     }
     
+    /**
+     The number of items in the `TableSection`.
+    */
     var numberOfItems: Int {
         return cells.count
     }
     
+    /**
+     Fetches the item at the given row of the `TableSection`.
+     
+     - parameter row: The `Int` row for the requested cell.
+     
+     - returns: The cell's view model, if it exists, or `nil` otherwise.
+    */
     func item(atRow row: Int) -> Cell? {
         guard row < numberOfItems else { return nil }
         return cells[row]
