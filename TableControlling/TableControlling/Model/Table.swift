@@ -37,6 +37,19 @@ struct Table<
     var numberOfSections: Int {
         return sections.count
     }
+    
+    /**
+     Fetches the item at the given index path of the `Table`.
+     
+     - parameter indexPath: The `IndexPath` of the requested cell.
+     
+     - returns: The cell's view model, if it exists, or `nil` otherwise.
+    */
+    func item(at indexPath: IndexPath) -> Cell? {
+        let (section, row) = (indexPath.section, indexPath.row)
+        guard section < numberOfSections else { return nil }
+        return sections[section].item(atRow: row)
+    }
 }
 
 func ==<
