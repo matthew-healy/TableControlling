@@ -88,6 +88,27 @@ class TableTests: XCTestCase {
         XCTAssertEqual(3, table.numberOfSections)
     }
     
+    // MARK: numberOfItems(inSection:) tests
+    
+    func test_numberOfItemsInSection_noSections_returns0() {
+        let table = Table<None, None, None, None, None>()
+        XCTAssertEqual(0, table.numberOfItems(inSection: 0))
+    }
+    
+    func test_numberOfItemsInSection_0_sectionHas3Cells_returns3() {
+        let section = TableSection<None, Int, None>(cells: [0, 0, 0])
+        let table = Table<None, None, Int, None, None>(sections: [section])
+        XCTAssertEqual(3, table.numberOfItems(inSection: 0))
+    }
+    
+    func test_numberOfItemsInSection_1_sectionHas1Cell_returns1() {
+        let section = TableSection<None, Int, None>(cells: [1])
+        let table = Table<None, None, Int, None, None>(
+            sections: [TableSection<None, Int, None>(), section]
+        )
+        XCTAssertEqual(1, table.numberOfItems(inSection: 1))
+    }
+    
     // MARK: item(at:_) tests
     
     func test_itemAt_row0section0_emptySections_returnsNil() {

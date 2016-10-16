@@ -39,6 +39,18 @@ struct Table<
     }
     
     /**
+     The number of `Cell`s in the given section of the `Table`.
+     
+     - parameter section: The `Int` value of the requested section.
+     
+     - returns: The `numberOfItems` in the secition, if it exists, or `0` otherwise.
+    */
+    func numberOfItems(inSection section: Int) -> Int {
+        guard section < numberOfSections else { return 0 }
+        return sections[section].numberOfItems
+    }
+    
+    /**
      Fetches the item at the given index path of the `Table`.
      
      - parameter indexPath: The `IndexPath` of the requested cell.
