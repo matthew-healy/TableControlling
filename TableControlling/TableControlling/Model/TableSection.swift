@@ -22,6 +22,10 @@ struct TableSection<Header: Equatable, Cell: Equatable, Footer: Equatable>: Equa
         self.cells = cells
         self.footer = footer
     }
+    
+    var numberOfItems: Int {
+        return cells.count
+    }
 }
 
 func ==<Header: Equatable, Cell: Equatable, Footer: Equatable>(

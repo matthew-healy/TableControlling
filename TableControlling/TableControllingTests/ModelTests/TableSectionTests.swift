@@ -6,36 +6,36 @@ class TableSectionTests: XCTestCase {
     // MARK: init tests
     
     func test_init_noArguments_headerNil() {
-        let sut = TableSection<None, None, None>()
-        XCTAssertNil(sut.header)
+        let tableSection = TableSection<None, None, None>()
+        XCTAssertNil(tableSection.header)
     }
     
     func test_init_noArguments_cellsIsEmpty() {
-        let sut = TableSection<None, None, None>()
-        XCTAssertTrue(sut.cells.isEmpty)
+        let tableSection = TableSection<None, None, None>()
+        XCTAssertTrue(tableSection.cells.isEmpty)
     }
     
     func test_init_noArguments_footerNil() {
-        let sut = TableSection<None, None, None>()
-        XCTAssertNil(sut.footer)
+        let tableSection = TableSection<None, None, None>()
+        XCTAssertNil(tableSection.footer)
     }
     
     func test_init_headerIsABC_headerABC() {
         let expectedHeader = "ABC"
-        let sut = TableSection<String, None, None>(header: expectedHeader)
-        XCTAssertEqual(expectedHeader, sut.header)
+        let tableSection = TableSection<String, None, None>(header: expectedHeader)
+        XCTAssertEqual(expectedHeader, tableSection.header)
     }
     
     func test_init_cellsAreABAndC_cellsAreABAndC() {
         let expectedCells = ["A", "B", "C"]
-        let sut = TableSection<None, String, None>(cells: expectedCells)
-        XCTAssertEqual(expectedCells, sut.cells)
+        let tableSection = TableSection<None, String, None>(cells: expectedCells)
+        XCTAssertEqual(expectedCells, tableSection.cells)
     }
     
     func test_init_footerIsDEF_footerIsDEF() {
         let expectedFooter = "DEF"
-        let sut = TableSection<None, None, String>(footer: expectedFooter)
-        XCTAssertEqual(expectedFooter, sut.footer)
+        let tableSection = TableSection<None, None, String>(footer: expectedFooter)
+        XCTAssertEqual(expectedFooter, tableSection.footer)
     }
     
     // MARK: equatable tests
@@ -65,6 +65,18 @@ class TableSectionTests: XCTestCase {
         (lhs, rhs) = (.create(footer: false), .create(footer: true))
         XCTAssertNotEqual(lhs, rhs)
         XCTAssertNotEqual(rhs, lhs)
+    }
+    
+    // MARK: numberOfItems tests
+    
+    func test_numberOfItems_cellsIsEmpty_returns0() {
+        let tableSection = TableSection<None, String, None>()
+        XCTAssertEqual(0, tableSection.numberOfItems)
+    }
+    
+    func test_numberOfItems_cellsIsABCD_returns4() {
+        let tableSection = TableSection<None, String, None>(cells: ["A", "B", "C", "D"])
+        XCTAssertEqual(4, tableSection.numberOfItems)
     }
     
 }
