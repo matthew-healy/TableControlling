@@ -19,6 +19,11 @@ enum StaticTable<
         guard case .display(let table) = self else { return 0 }
         return table.numberOfItems(inSection: section)
     }
+    
+    func item(at indexPath: IndexPath) -> Cell? {
+        guard case .display(let table) = self else { return nil }
+        return table.item(at: indexPath)
+    }
 }
 
 func ==<

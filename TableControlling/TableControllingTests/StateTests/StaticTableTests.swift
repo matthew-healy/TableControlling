@@ -36,7 +36,10 @@ class StaticTableTests: XCTestCase {
     
     // MARK: numberOfSections tests
     
-    var staticStringTable: StaticTable< None, None, String, None, None>!
+    typealias StaticStringTable = StaticTable<None, None, String, None, None>
+    typealias StringTable = Table<None, None, String, None, None>
+    typealias StringTableSection = TableSection<None, String, None>
+    var staticStringTable: StaticStringTable!
     
     func test_numberOfSections_ready_returns0() {
         staticStringTable = .ready
@@ -61,17 +64,36 @@ class StaticTableTests: XCTestCase {
     }
     
     func test_numberOfItemsInSection_0_display_2CellsInSection0_returns2() {
-        let twoCellSection: TableSection<None, String, None> = .create(cells: ["", ""])
+        let twoCellSection: StringTableSection = .create(cells: ["", ""])
         staticStringTable = .display(.create(sections: [twoCellSection]))
         XCTAssertEqual(2, staticStringTable.numberOfItems(inSection: 0))
     }
     
     func test_numberOfItemsInSection_3_display_1CellInSection3_returns3() {
-        let oneCellSection: TableSection<None, String, None> = .create(cells: [""])
+        let oneCellSection: StringTableSection = .create(cells: [""])
         staticStringTable = .display(
             .create(sections: [.create(), .create(), .create(), oneCellSection])
         )
         XCTAssertEqual(1, staticStringTable.numberOfItems(inSection: 3))
+    }
+    
+    // MARK: item(at:) tests
+    
+    func test_itemAt_row0section1_ready_returnsNil() {
+        staticStringTable = .ready
+        XCTAssertNil(staticStringTable.item(at: IndexPath(row: 0, section: 1)))
+    }
+    
+    func test_itemAt_row2Section0_display_cellHEYYAAtRow2Section0_returnsHEYYA() {
+        let threeCellSection: StringTableSection = .create(cells: ["", "", "HEY YA"])
+        staticStringTable = .display(.create(sections: [threeCellSection]))
+        XCTAssertEqual("HEY YA", staticStringTable.item(at: IndexPath(row: 2, section: 0)))
+    }
+    
+    func test_itemAt_row1section2_display_cellSupAtRow1Section2_returnsSup() {
+        let twoCellSection: StringTableSection = .create(cells: ["", "Sup"])
+        staticStringTable = .display(.create(sections: [.create(), .create(), twoCellSection]))
+        XCTAssertEqual("Sup", staticStringTable.item(at: IndexPath(row: 1, section: 2)))
     }
 
 }
