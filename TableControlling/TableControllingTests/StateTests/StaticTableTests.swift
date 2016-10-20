@@ -38,19 +38,40 @@ class StaticTableTests: XCTestCase {
     
     var staticStringTable: StaticTable< None, None, String, None, None>!
     
-    func test_numberOfSections_stateIsReady_returns0() {
+    func test_numberOfSections_ready_returns0() {
         staticStringTable = .ready
         XCTAssertEqual(0, staticStringTable.numberOfSections)
     }
     
-    func test_numberOfSections_stateIsDisplay_with1Section_returns1() {
+    func test_numberOfSections_display_with1Section_returns1() {
         staticStringTable = .display(.create(sections: [.create()]))
         XCTAssertEqual(1, staticStringTable.numberOfSections)
     }
     
-    func test_numberOfSections_stateIsDisplay_with0Sections_returns0() {
+    func test_numberOfSections_display_with0Sections_returns0() {
         staticStringTable = .display(.create())
         XCTAssertEqual(0, staticStringTable.numberOfSections)
+    }
+    
+    // MARK: numberOfItems(inSection:_) tests
+    
+    func test_numberOfItemsInSection_0_ready_returns0() {
+        staticStringTable = .ready
+        XCTAssertEqual(0, staticStringTable.numberOfItems(inSection: 0))
+    }
+    
+    func test_numberOfItemsInSection_0_display_2CellsInSection0_returns2() {
+        let twoCellSection: TableSection<None, String, None> = .create(cells: ["", ""])
+        staticStringTable = .display(.create(sections: [twoCellSection]))
+        XCTAssertEqual(2, staticStringTable.numberOfItems(inSection: 0))
+    }
+    
+    func test_numberOfItemsInSection_3_display_1CellInSection3_returns3() {
+        let oneCellSection: TableSection<None, String, None> = .create(cells: [""])
+        staticStringTable = .display(
+            .create(sections: [.create(), .create(), .create(), oneCellSection])
+        )
+        XCTAssertEqual(1, staticStringTable.numberOfItems(inSection: 3))
     }
 
 }
