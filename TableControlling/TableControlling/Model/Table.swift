@@ -43,7 +43,7 @@ struct Table<
      
      - parameter section: The `Int` value of the requested section.
      
-     - returns: The `numberOfItems` in the secition, if it exists, or `0` otherwise.
+     - returns: The `numberOfItems` in the section, if it exists, or `0` otherwise.
     */
     func numberOfItems(inSection section: Int) -> Int {
         return sections[safe: section]?.numberOfItems ?? 0
