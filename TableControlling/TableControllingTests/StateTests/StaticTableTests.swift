@@ -33,5 +33,24 @@ class StaticTableTests: XCTestCase {
         XCTAssertNotEqual(lhs, rhs)
         XCTAssertNotEqual(rhs, lhs)
     }
+    
+    // MARK: numberOfSections tests
+    
+    var staticStringTable: StaticTable< None, None, String, None, None>!
+    
+    func test_numberOfSections_stateIsReady_returns0() {
+        staticStringTable = .ready
+        XCTAssertEqual(0, staticStringTable.numberOfSections)
+    }
+    
+    func test_numberOfSections_stateIsDisplay_with1Section_returns1() {
+        staticStringTable = .display(.create(sections: [.create()]))
+        XCTAssertEqual(1, staticStringTable.numberOfSections)
+    }
+    
+    func test_numberOfSections_stateIsDisplay_with0Sections_returns0() {
+        staticStringTable = .display(.create())
+        XCTAssertEqual(0, staticStringTable.numberOfSections)
+    }
 
 }

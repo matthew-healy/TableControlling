@@ -9,6 +9,11 @@ enum StaticTable<
     case display(
         Table<Header, SectionHeader, Cell, SectionFooter, Footer>
     )
+    
+    var numberOfSections: Int {
+        guard case .display(let table) = self else { return 0 }
+        return table.numberOfSections
+    }
 }
 
 func ==<
