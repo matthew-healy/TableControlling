@@ -3,8 +3,8 @@
  It can either be `ready` to display a `Table`, or currently `display`ing one.
  
  It has proxies for the `Table`s data methods - e.g. `numberOfSections`
- which is passes on to the underlying `Table`, if it exists, and otherwise
- returns default values.
+ which it passes on to the underlying `Table`, if it exists, or otherwise
+ return default values.
 */
 enum StaticTable<
     Header: Equatable,
