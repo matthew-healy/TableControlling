@@ -16,7 +16,7 @@ enum StaticTable<
     /// The table is `ready` to display data. This is the default state of a newly-created table.
     case ready
     /// The table is currently displaying the associated `Table` view model.
-    case display(
+    case displaying(
         Table<Header, SectionHeader, Cell, SectionFooter, Footer>
     )
     
@@ -24,7 +24,7 @@ enum StaticTable<
      The number of sections in the underlying `Table`, or 0 if one is not displayed.
     */
     var numberOfSections: Int {
-        guard case .display(let table) = self else { return 0 }
+        guard case .displaying(let table) = self else { return 0 }
         return table.numberOfSections
     }
     
@@ -37,7 +37,7 @@ enum StaticTable<
                 or `0` if not `display`ing one.
     */
     func numberOfItems(inSection section: Int) -> Int {
-        guard case .display(let table) = self else { return 0 }
+        guard case .displaying(let table) = self else { return 0 }
         return table.numberOfItems(inSection: section)
     }
     
@@ -50,7 +50,7 @@ enum StaticTable<
                 or `nil` if not currently `display`ing one.
      */
     func item(at indexPath: IndexPath) -> Cell? {
-        guard case .display(let table) = self else { return nil }
+        guard case .displaying(let table) = self else { return nil }
         return table.item(at: indexPath)
     }
 }
@@ -67,7 +67,7 @@ func ==<
 ) -> Bool {
     switch (lhs, rhs) {
     case (.ready, .ready): return true
-    case (.display(let lhsTable), .display(let rhsTable)): return lhsTable == rhsTable
+    case (.displaying(let lhsTable), .displaying(let rhsTable)): return lhsTable == rhsTable
     default: return false
     }
 }
