@@ -39,15 +39,15 @@ class DynamicTableTests: XCTestCase {
     }
     
     func test_equals_bothFailed_sameError_true() {
-        enum Failure: Error { case bees }
         (lhs, rhs) = (.failed(Failure.bees), .failed(Failure.bees))
         XCTAssertEqual(lhs, rhs)
         XCTAssertEqual(rhs, lhs)
     }
     
+    enum Failure: Error { case ants, bees }
+
     func test_equals_bothFailed_differentErrors_false() {
-        enum Failure: Error { case ants, bears }
-        (lhs, rhs) = (.failed(Failure.ants), .failed(Failure.bears))
+        (lhs, rhs) = (.failed(Failure.ants), .failed(Failure.bees))
         XCTAssertNotEqual(lhs, rhs)
         XCTAssertNotEqual(rhs, lhs)
     }
