@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		341535471DB81A9800CD2A2F /* StaticTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341535461DB81A9800CD2A2F /* StaticTable.swift */; };
 		341535491DB81AAB00CD2A2F /* StaticTableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341535481DB81AAB00CD2A2F /* StaticTableTests.swift */; };
+		341DECA21DC27B7000A734A3 /* AssertSymmetricallyEqual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341DECA11DC27B7000A734A3 /* AssertSymmetricallyEqual.swift */; };
 		345B4E711DB3DB6D001D1BB1 /* TableControlling.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 345B4E671DB3DB6D001D1BB1 /* TableControlling.framework */; };
 		345B4E781DB3DB6D001D1BB1 /* TableControlling.h in Headers */ = {isa = PBXBuildFile; fileRef = 345B4E6A1DB3DB6D001D1BB1 /* TableControlling.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		345B4E861DB3DE0F001D1BB1 /* None.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B4E851DB3DE0F001D1BB1 /* None.swift */; };
@@ -35,6 +36,7 @@
 /* Begin PBXFileReference section */
 		341535461DB81A9800CD2A2F /* StaticTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticTable.swift; sourceTree = "<group>"; };
 		341535481DB81AAB00CD2A2F /* StaticTableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticTableTests.swift; sourceTree = "<group>"; };
+		341DECA11DC27B7000A734A3 /* AssertSymmetricallyEqual.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssertSymmetricallyEqual.swift; sourceTree = "<group>"; };
 		345B4E671DB3DB6D001D1BB1 /* TableControlling.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TableControlling.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		345B4E6A1DB3DB6D001D1BB1 /* TableControlling.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableControlling.h; sourceTree = "<group>"; };
 		345B4E6B1DB3DB6D001D1BB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -88,6 +90,15 @@
 			path = StateTests;
 			sourceTree = "<group>";
 		};
+		341DECA01DC27B1000A734A3 /* TestHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				341DECA11DC27B7000A734A3 /* AssertSymmetricallyEqual.swift */,
+			);
+			name = TestHelpers;
+			path = TableControllingTests/TestHelpers;
+			sourceTree = SOURCE_ROOT;
+		};
 		345B4E5D1DB3DB6D001D1BB1 = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +132,7 @@
 		345B4E741DB3DB6D001D1BB1 /* TableControllingTests */ = {
 			isa = PBXGroup;
 			children = (
+				341DECA01DC27B1000A734A3 /* TestHelpers */,
 				341535451DB81A5C00CD2A2F /* StateTests */,
 				3494767E1DB4223000D5DC99 /* StdLibExtensionTests */,
 				345B4E811DB3DD91001D1BB1 /* ModelTests */,
@@ -291,6 +303,7 @@
 			files = (
 				341535491DB81AAB00CD2A2F /* StaticTableTests.swift in Sources */,
 				345B4E8C1DB3E8E9001D1BB1 /* TableTests.swift in Sources */,
+				341DECA21DC27B7000A734A3 /* AssertSymmetricallyEqual.swift in Sources */,
 				349476801DB4223000D5DC99 /* CollectionExtensionTests.swift in Sources */,
 				345EEF3B1DC21A1E0035678B /* DynamicTableTests.swift in Sources */,
 				345B4E881DB3E04B001D1BB1 /* TableSectionTests.swift in Sources */,
