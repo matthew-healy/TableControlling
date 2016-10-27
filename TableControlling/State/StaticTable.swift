@@ -4,7 +4,7 @@
  
  It has proxies for the `Table`s data methods - e.g. `numberOfSections`
  which it passes on to the underlying `Table`, if it exists, or returns
- sensible default values otherwise.
+ sensible default values for otherwise.
 */
 enum StaticTable<
     Header: Equatable,

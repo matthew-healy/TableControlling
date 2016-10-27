@@ -1,6 +1,6 @@
 extension Collection where Index == IndexDistance {
     /**
-     Access the elements of the collection without fear of 
+     Allows access to the elements of a collection without fear of 
      out-of-bounds errors.
      
      - parameter index: The index of the element requested.
