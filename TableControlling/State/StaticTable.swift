@@ -3,8 +3,8 @@
  It can either be `ready` to display a `Table`, or currently `displaying` one.
  
  It has proxies for the `Table`s data methods - e.g. `numberOfSections`
- which it passes on to the underlying `Table`, if it exists, or otherwise
- return default values.
+ which it passes on to the underlying `Table`, if it exists, or returns
+ sensible default values otherwise.
 */
 enum StaticTable<
     Header: Equatable,
@@ -21,7 +21,7 @@ enum StaticTable<
     )
     
     /**
-     The number of sections in the underlying `Table`, or 0 if one is not displayed.
+     The number of sections in the underlying `Table`, or `0` if one is not displayed.
     */
     var numberOfSections: Int {
         guard case .displaying(let table) = self else { return 0 }
@@ -31,7 +31,7 @@ enum StaticTable<
     /**
      The number of `Cell`s in the given section of the underlying `Table`.
      
-     - parameter section: The `Int` value of the requested section.
+     - parameter section: The `Int` index of the requested section.
      
      - returns: The `numberOfItems` for that section of the `Table`, 
                 or `0` if not `display`ing one.
@@ -44,10 +44,10 @@ enum StaticTable<
     /**
      Fetches the item at the given index path of the underlying `Table`.
      
-     - parameter indexPath: The `IndexPath` of the requested cell.
+     - parameter indexPath: The `IndexPath` of the requested `Cell`.
      
      - returns: The result of calling `item(at:)` on the underlying `Table`,
-                or `nil` if not currently `display`ing one.
+                or `nil` if one is not currently displayed.
      */
     func item(at indexPath: IndexPath) -> Cell? {
         guard case .displaying(let table) = self else { return nil }
