@@ -95,4 +95,22 @@ class DynamicTableTests: XCTestCase {
         sut = .displaying(fourSectionTable)
         XCTAssertEqual(3, sut.numberOfItems(inSection: 2))
     }
+    
+    // MARK: item(at:) tests
+    
+    func test_itemAt_row0section0_displaying_99AtRow0Section0_returns99() {
+        sut = .displaying(.create(sections: [.create(cells: [99])]))
+        XCTAssertEqual(99, sut.item(at: IndexPath(row: 0, section: 0)))
+    }
+    
+    func test_itemAt_row2section9_notDisplaying_returnsNil() {
+        sut = .ready
+        XCTAssertNil(sut.item(at: IndexPath(row: 2, section: 9)))
+    }
+    
+    func test_itemAt_row3section1_displaying_516AtRow3Section1_returns516() {
+        let fourRowSection: IntTableSection = .create(cells: [0, 0, 0, 516])
+        sut = .displaying(.create(sections: [.create(), fourRowSection]))
+        XCTAssertEqual(516, sut.item(at: IndexPath(row: 3, section: 1)))
+    }
 }
