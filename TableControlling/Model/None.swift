@@ -1,5 +1,5 @@
 /**
- `None` represents the absence of a value.
+ `None` represents the absence of a type.
  
  It can be thought of as being similar to Swift's own `Void`
  type, with the vital difference being that `None` is `Equatable`.
