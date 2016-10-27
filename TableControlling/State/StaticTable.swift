@@ -1,6 +1,6 @@
 /**
  A state model which represents the possible states for a static `Table`. 
- It can either be `ready` to display a `Table`, or currently `display`ing one.
+ It can either be `ready` to display a `Table`, or currently `displaying` one.
  
  It has proxies for the `Table`s data methods - e.g. `numberOfSections`
  which it passes on to the underlying `Table`, if it exists, or otherwise
@@ -15,7 +15,7 @@ enum StaticTable<
 >: Equatable {
     /// The table is `ready` to display data. This is the default state of a newly-created table.
     case ready
-    /// The table is currently displaying the associated `Table` view model.
+    /// The table is currently `displaying` the associated `Table` view model.
     case displaying(
         Table<Header, SectionHeader, Cell, SectionFooter, Footer>
     )
