@@ -48,28 +48,21 @@ class TableTests: XCTestCase {
     
     func test_equals_headerSectionsAndFooterMatch_true() {
         (lhs, rhs) = (.create(), .create())
-        XCTAssertEqual(lhs, rhs)
-        XCTAssertEqual(rhs, lhs)
+        AssertSymmetricallyEqual(lhs, rhs)
     }
     
     func test_equals_headersDoNotMatch_false() {
         (lhs, rhs) = (.create(header: false), .create(header: true))
-        XCTAssertNotEqual(lhs, rhs)
-        XCTAssertNotEqual(rhs, lhs)
-    }
+        AssertSymmetricallyNotEqual(lhs, rhs)    }
     
     func test_equals_sectionsDoNotMatch_false() {
         lhs = .create(sections: [.create(header: false)])
         rhs = .create(sections: [])
-        XCTAssertNotEqual(lhs, rhs)
-        XCTAssertNotEqual(rhs, lhs)
-    }
+        AssertSymmetricallyNotEqual(lhs, rhs)    }
     
     func test_equals_footerDoNotMatch_false() {
         (lhs, rhs) = (.create(footer: false), .create(footer: true))
-        XCTAssertNotEqual(lhs, rhs)
-        XCTAssertNotEqual(rhs, lhs)
-    }
+        AssertSymmetricallyNotEqual(lhs, rhs)    }
     
     // MARK: numberOfSections tests
     

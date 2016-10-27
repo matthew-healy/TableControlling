@@ -10,29 +10,23 @@ class StaticTableTests: XCTestCase {
     
     func test_equals_bothReady_true() {
         (lhs, rhs) = (.ready, .ready)
-        XCTAssertEqual(lhs, rhs)
-        XCTAssertEqual(rhs, lhs)
+        AssertSymmetricallyEqual(lhs, rhs)
     }
     
     func test_equals_oneReadyOneDisplay_false() {
         (lhs, rhs) = (.ready, .displaying(.create()))
-        XCTAssertNotEqual(lhs, rhs)
-        XCTAssertNotEqual(rhs, lhs)
-    }
+        AssertSymmetricallyNotEqual(lhs, rhs)    }
     
     func test_equals_bothDisplayMatchingTables_true() {
         lhs = .displaying(.create())
         rhs = .displaying(.create())
-        XCTAssertEqual(lhs, rhs)
-        XCTAssertEqual(rhs, lhs)
+        AssertSymmetricallyEqual(lhs, rhs)
     }
     
     func test_equals_bothDisplayDifferentTables_false() {
         lhs = .displaying(.create(sections: [.create()]))
         rhs = .displaying(.create())
-        XCTAssertNotEqual(lhs, rhs)
-        XCTAssertNotEqual(rhs, lhs)
-    }
+        AssertSymmetricallyNotEqual(lhs, rhs)    }
     
     // MARK: numberOfSections tests
     
