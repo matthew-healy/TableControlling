@@ -6,24 +6,24 @@ class TableTests: XCTestCase {
     // MARK: init tests
     
     func test_init_noArguments_headerIsNil() {
-        let table = Table<None, None, None, None, None>()
-        XCTAssertNil(table.header)
+        let sut = Table<None, None, None, None, None>()
+        XCTAssertNil(sut.header)
     }
     
     func test_init_noArguments_sectionsIsEmpty() {
-        let table = Table<None, None, None, None, None>()
-        XCTAssertTrue(table.sections.isEmpty)
+        let sut = Table<None, None, None, None, None>()
+        XCTAssertTrue(sut.sections.isEmpty)
     }
     
     func test_init_noArguments_footerIsNil() {
-        let table = Table<None, None, None, None, None>()
-        XCTAssertNil(table.footer)
+        let sut = Table<None, None, None, None, None>()
+        XCTAssertNil(sut.footer)
     }
     
     func test_init_headerABC_headerIsABC() {
         let expectedHeader = "ABC"
-        let table = Table<String, None, None, None, None>(header: "ABC")
-        XCTAssertEqual(expectedHeader, table.header)
+        let sut = Table<String, None, None, None, None>(header: "ABC")
+        XCTAssertEqual(expectedHeader, sut.header)
     }
     
     func test_init_sectionsWithCellsAAndB_sectionsHaveCellsAAndB() {
@@ -31,14 +31,14 @@ class TableTests: XCTestCase {
             TableSection<None, String, None>(cells: ["A"]),
             TableSection<None, String, None>(cells: ["B"])
         ]
-        let table = Table<None, None, String, None, None>(sections: expectedSections)
-        XCTAssertEqual(expectedSections, table.sections)
+        let sut = Table<None, None, String, None, None>(sections: expectedSections)
+        XCTAssertEqual(expectedSections, sut.sections)
     }
     
     func test_init_footerDEF_footerIsDEF() {
         let expectedFooter = "DEF"
-        let table = Table<None, None, None, None, String>(footer: "DEF")
-        XCTAssertEqual(expectedFooter, table.footer)
+        let sut = Table<None, None, None, None, String>(footer: "DEF")
+        XCTAssertEqual(expectedFooter, sut.footer)
     }
     
     // MARK: equals tests
@@ -74,8 +74,8 @@ class TableTests: XCTestCase {
     // MARK: numberOfSections tests
     
     func test_numberOfSections_emptySections_returns0() {
-        let table = Table<None, None, None, None, None>()
-        XCTAssertEqual(0, table.numberOfSections)
+        let sut = Table<None, None, None, None, None>()
+        XCTAssertEqual(0, sut.numberOfSections)
     }
     
     func test_numberOfSections_threeSections_returns3() {
@@ -84,52 +84,52 @@ class TableTests: XCTestCase {
             TableSection<None, None, None>(),
             TableSection<None, None, None>()
         ]
-        let table = Table<None, None, None, None, None>(sections: sections)
-        XCTAssertEqual(3, table.numberOfSections)
+        let sut = Table<None, None, None, None, None>(sections: sections)
+        XCTAssertEqual(3, sut.numberOfSections)
     }
     
     // MARK: numberOfItems(inSection:) tests
     
     func test_numberOfItemsInSection_noSections_returns0() {
-        let table = Table<None, None, None, None, None>()
-        XCTAssertEqual(0, table.numberOfItems(inSection: 0))
+        let sut = Table<None, None, None, None, None>()
+        XCTAssertEqual(0, sut.numberOfItems(inSection: 0))
     }
     
     func test_numberOfItemsInSection_0_sectionHas3Cells_returns3() {
         let section = TableSection<None, Int, None>(cells: [0, 0, 0])
-        let table = Table<None, None, Int, None, None>(sections: [section])
-        XCTAssertEqual(3, table.numberOfItems(inSection: 0))
+        let sut = Table<None, None, Int, None, None>(sections: [section])
+        XCTAssertEqual(3, sut.numberOfItems(inSection: 0))
     }
     
     func test_numberOfItemsInSection_1_sectionHas1Cell_returns1() {
         let section = TableSection<None, Int, None>(cells: [1])
-        let table = Table<None, None, Int, None, None>(
+        let sut = Table<None, None, Int, None, None>(
             sections: [TableSection<None, Int, None>(), section]
         )
-        XCTAssertEqual(1, table.numberOfItems(inSection: 1))
+        XCTAssertEqual(1, sut.numberOfItems(inSection: 1))
     }
     
     // MARK: item(at:_) tests
     
     func test_itemAt_row0section0_emptySections_returnsNil() {
-        let table = Table<None, None, None, None, None>()
-        XCTAssertNil(table.item(at: IndexPath(row: 0, section: 0)))
+        let sut = Table<None, None, None, None, None>()
+        XCTAssertNil(sut.item(at: IndexPath(row: 0, section: 0)))
     }
     
     func test_itemAt_row0section0_sectionFirstCellIsA_returnsA() {
         let section = TableSection<None, String, None>(cells: ["A"])
-        let table = Table<None, None, String, None, None>(
+        let sut = Table<None, None, String, None, None>(
             sections: [section]
         )
-        XCTAssertEqual("A", table.item(at: IndexPath(row: 0, section: 0)))
+        XCTAssertEqual("A", sut.item(at: IndexPath(row: 0, section: 0)))
     }
     
     func test_itemAt_row1section3_secondSectionThirdCellIs12_returns12() {
         let section = TableSection<None, Int, None>(cells: [0, 0, 0, 12])
-        let table = Table<None, None, Int, None, None>(
+        let sut = Table<None, None, Int, None, None>(
             sections: [TableSection<None, Int, None>(), section]
         )
-        XCTAssertEqual(12, table.item(at: IndexPath(row: 3, section: 1)))
+        XCTAssertEqual(12, sut.item(at: IndexPath(row: 3, section: 1)))
     }
     
 }
