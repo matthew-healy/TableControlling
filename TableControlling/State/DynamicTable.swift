@@ -20,6 +20,11 @@ enum DynamicTable<
     )
     /// The table has `failed` to load. This is the appropriate time to retry, or show an error.
     case failed(Error)
+    
+    var numberOfSections: Int {
+        guard case .displaying(let table) = self else { return 0 }
+        return table.numberOfSections
+    }
 }
 
 func ==<

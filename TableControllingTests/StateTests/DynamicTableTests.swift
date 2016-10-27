@@ -45,10 +45,33 @@ class DynamicTableTests: XCTestCase {
     }
     
     enum Failure: Error { case ants, bees }
-
+    
     func test_equals_bothFailed_differentErrors_false() {
         (lhs, rhs) = (.failed(Failure.ants), .failed(Failure.bees))
         XCTAssertNotEqual(lhs, rhs)
         XCTAssertNotEqual(rhs, lhs)
+    }
+    
+    // MARK: numberOfSections tests
+    
+    typealias IntTableSection = TableSection<None, Int, None>
+    typealias IntTable = Table<None, None, Int, None, None>
+    typealias IntDynamicTable = DynamicTable<None, None, Int, None, None>
+    var sut: IntDynamicTable!
+    
+    func test_numberOfSections_displayingTableWith1Section_returns1() {
+        sut = .displaying(.create(sections: [.create()]))
+        XCTAssertEqual(1, sut.numberOfSections)
+    }
+    
+    func test_numberOfSections_notDisplaying_returns0() {
+        sut = .failed(Failure.bees)
+        XCTAssertEqual(0, sut.numberOfSections)
+    }
+    
+    func test_numberOfSections_displayingTableWith3Sections_returns3() {
+        let threeSectionTable: IntTable = .create(sections: [.create(), .create(), .create()])
+        sut = .displaying(threeSectionTable)
+        XCTAssertEqual(3, sut.numberOfSections)
     }
 }
