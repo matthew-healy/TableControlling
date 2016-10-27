@@ -25,6 +25,11 @@ enum DynamicTable<
         guard case .displaying(let table) = self else { return 0 }
         return table.numberOfSections
     }
+    
+    func numberOfItems(inSection section: Int) -> Int {
+        guard case .displaying(let table) = self else { return 0 }
+        return table.numberOfItems(inSection: section)
+    }
 }
 
 func ==<

@@ -74,4 +74,25 @@ class DynamicTableTests: XCTestCase {
         sut = .displaying(threeSectionTable)
         XCTAssertEqual(3, sut.numberOfSections)
     }
+
+    // MARK: numberOfItems(inSection:) tests
+
+    func test_numberOfItemsInSection_0_displaying_1ItemInSection0_returns1() {
+        sut = .displaying(.create(sections: [.create(cells: [1])]))
+        XCTAssertEqual(1, sut.numberOfItems(inSection: 0))
+    }
+
+    func test_numberOfItemsInSection_notDisplaying_returns0() {
+        sut = .loading
+        XCTAssertEqual(0, sut.numberOfItems(inSection: 3))
+    }
+
+    func test_numberOfItemsInSection_2_displaying_3ItemsInSection2_returns3() {
+        let threeCellSection: IntTableSection = .create(cells: [0, 0, 0])
+        let fourSectionTable: IntTable = .create(
+            sections: [.create(), .create(), threeCellSection, .create()]
+        )
+        sut = .displaying(fourSectionTable)
+        XCTAssertEqual(3, sut.numberOfItems(inSection: 2))
+    }
 }
