@@ -5,7 +5,7 @@
  
  It has proxies for the `Table`s data methods - e.g. `numberOfSections`
  which it passes on to the underlying `Table`, if it exists, or returns
- sensible default values otherwise.
+ sensible default values for otherwise.
 */
 enum DynamicTable<
     Header: Equatable,
@@ -16,13 +16,13 @@ enum DynamicTable<
 >: Equatable {
     /// The table is `ready` to display data. This is the default state of a newly-created table.
     case ready
-    /// The table is `loading` data to display. This is the appropriate time to show an activity indicator.
+    /// The table is `loading` data to display. This is the appropriate state for which to show an activity indicator.
     case loading
     /// The table is currently `displaying` the associated `Table` view model.
     case displaying(
         Table<Header, SectionHeader, Cell, SectionFooter, Footer>
     )
-    /// The table has `failed` to load. This is the appropriate time to retry, or show an error.
+    /// The table has `failed` to load. This is the appropriate state for which to show an error.
     case failed(Error)
     
     /**
