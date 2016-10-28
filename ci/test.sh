@@ -22,4 +22,4 @@ xcodebuild \
   -destination "platform=iOS Simulator,id=${SIMULATOR_UDID}" \
   CODE_SIGNING_IDENTITY=""\
   CODE_SIGNING_REQUIRED=NO\
-  test
+  test | xcpretty -c
