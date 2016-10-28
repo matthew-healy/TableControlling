@@ -1,3 +1,5 @@
+Develop: [![Build Status](https://travis-ci.org/matthew-healy/TableControlling.svg?branch=develop)](https://travis-ci.org/matthew-healy/TableControlling)
+
 # TableControlling
 UITableView management with protocols and generics.
 
