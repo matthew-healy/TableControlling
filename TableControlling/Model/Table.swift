@@ -1,3 +1,5 @@
+import Foundation
+
 /**
  A view model which represents the contents of a `UITableView`.
  

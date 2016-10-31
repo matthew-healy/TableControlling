@@ -1,3 +1,5 @@
+import Foundation
+
 /**
  A state model which represents the possible states for a static `Table`. 
  It can either be `ready` to display a `Table`, or currently `displaying` one.
