@@ -21,6 +21,7 @@
 		345EEF3B1DC21A1E0035678B /* DynamicTableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345EEF3A1DC21A1E0035678B /* DynamicTableTests.swift */; };
 		3494767D1DB4220C00D5DC99 /* CollectionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3494767C1DB4220C00D5DC99 /* CollectionExtension.swift */; };
 		349476801DB4223000D5DC99 /* CollectionExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3494767F1DB4223000D5DC99 /* CollectionExtensionTests.swift */; };
+		34F777F91DC7778C00D8A529 /* TableModelling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F777F81DC7778C00D8A529 /* TableModelling.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		345EEF3A1DC21A1E0035678B /* DynamicTableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicTableTests.swift; sourceTree = "<group>"; };
 		3494767C1DB4220C00D5DC99 /* CollectionExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionExtension.swift; sourceTree = "<group>"; };
 		3494767F1DB4223000D5DC99 /* CollectionExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionExtensionTests.swift; sourceTree = "<group>"; };
+		34F777F81DC7778C00D8A529 /* TableModelling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableModelling.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 				341535441DB81A5200CD2A2F /* State */,
 				3494767B1DB4220C00D5DC99 /* StdLibExtension */,
 				345B4E821DB3DD9E001D1BB1 /* Model */,
+				34F777F51DC774C000D8A529 /* Protocols */,
 				345B4E6A1DB3DB6D001D1BB1 /* TableControlling.h */,
 				345B4E6B1DB3DB6D001D1BB1 /* Info.plist */,
 			);
@@ -174,6 +177,15 @@
 				3494767F1DB4223000D5DC99 /* CollectionExtensionTests.swift */,
 			);
 			path = StdLibExtensionTests;
+			sourceTree = "<group>";
+		};
+		34F777F51DC774C000D8A529 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				34F777F81DC7778C00D8A529 /* TableModelling.swift */,
+			);
+			name = Protocols;
+			path = DataPropagating;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,6 +300,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34F777F91DC7778C00D8A529 /* TableModelling.swift in Sources */,
 				345EEF391DC219FF0035678B /* DynamicTable.swift in Sources */,
 				341535471DB81A9800CD2A2F /* StaticTable.swift in Sources */,
 				3494767D1DB4220C00D5DC99 /* CollectionExtension.swift in Sources */,
