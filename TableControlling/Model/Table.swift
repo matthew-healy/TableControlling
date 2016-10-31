@@ -13,7 +13,7 @@ struct Table<
     Header: Equatable,
     SectionHeader: Equatable, Cell: Equatable, SectionFooter:Equatable,
     Footer: Equatable
->: Equatable {
+>: Equatable, TableModelling {
     typealias Section = TableSection<SectionHeader, Cell, SectionFooter>
     
     let header: Header?

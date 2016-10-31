@@ -15,7 +15,7 @@ enum DynamicTable<
     Cell: Equatable,
     SectionFooter: Equatable,
     Footer: Equatable
->: Equatable {
+>: Equatable, TableModelling {
     /// The table is `ready` to display data. This is the default state of a newly-created table.
     case ready
     /// The table is `loading` data to display. This is the appropriate state for which to show an activity indicator.
