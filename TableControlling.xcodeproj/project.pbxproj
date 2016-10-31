@@ -21,6 +21,7 @@
 		345EEF3B1DC21A1E0035678B /* DynamicTableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345EEF3A1DC21A1E0035678B /* DynamicTableTests.swift */; };
 		3494767D1DB4220C00D5DC99 /* CollectionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3494767C1DB4220C00D5DC99 /* CollectionExtension.swift */; };
 		349476801DB4223000D5DC99 /* CollectionExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3494767F1DB4223000D5DC99 /* CollectionExtensionTests.swift */; };
+		34F777F71DC7756900D8A529 /* TableControlling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F777F61DC7756900D8A529 /* TableControlling.swift */; };
 		34F777F91DC7778C00D8A529 /* TableModelling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F777F81DC7778C00D8A529 /* TableModelling.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		345EEF3A1DC21A1E0035678B /* DynamicTableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicTableTests.swift; sourceTree = "<group>"; };
 		3494767C1DB4220C00D5DC99 /* CollectionExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionExtension.swift; sourceTree = "<group>"; };
 		3494767F1DB4223000D5DC99 /* CollectionExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionExtensionTests.swift; sourceTree = "<group>"; };
+		34F777F61DC7756900D8A529 /* TableControlling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableControlling.swift; sourceTree = "<group>"; };
 		34F777F81DC7778C00D8A529 /* TableModelling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableModelling.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -182,6 +184,7 @@
 		34F777F51DC774C000D8A529 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				34F777F61DC7756900D8A529 /* TableControlling.swift */,
 				34F777F81DC7778C00D8A529 /* TableModelling.swift */,
 			);
 			name = Protocols;
@@ -307,6 +310,7 @@
 				345B4E8E1DB3E8F3001D1BB1 /* Table.swift in Sources */,
 				345B4E8A1DB3E056001D1BB1 /* TableSection.swift in Sources */,
 				345B4E861DB3DE0F001D1BB1 /* None.swift in Sources */,
+				34F777F71DC7756900D8A529 /* TableControlling.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
