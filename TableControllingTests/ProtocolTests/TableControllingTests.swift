@@ -11,6 +11,8 @@ class TableControllingTests: XCTestCase {
         sut = PartialMockTableController(model: model, view: "")
     }
     
+    // MARK: numberOfSectionsInTable tests
+    
     func test_numberOfSectionsInTable_modelHas5Sections_returns5() {
         model.stubNumberOfSections = 5
         XCTAssertEqual(5, sut.numberOfSectionsInTable)
@@ -20,6 +22,8 @@ class TableControllingTests: XCTestCase {
         model.stubNumberOfSections = 7
         XCTAssertEqual(7, sut.numberOfSectionsInTable)
     }
+    
+    // MARK: numberOfItems(inTableSection:) tests
     
     func test_numberOfItemsInTableSection_1_asksModelForItemsInSection7() {
         _ = sut.numberOfItems(inTableSection: 1)
