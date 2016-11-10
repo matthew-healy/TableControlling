@@ -21,6 +21,32 @@ class TableControllingTests: XCTestCase {
         XCTAssertEqual(7, sut.numberOfSectionsInTable)
     }
     
+    func test_numberOfItemsInTableSection_1_asksModelForItemsInSection7() {
+        _ = sut.numberOfItems(inTableSection: 1)
+        guard let requestedSection = model.spyNumberOfItemsInSection else {
+            return XCTFail("Did not ask model for number of items")
+        }
+        XCTAssertEqual(1, requestedSection)
+    }
+    
+    func test_numberOfItemsInTableSection14_asksModelForItemsInSection14() {
+        _ = sut.numberOfItems(inTableSection: 14)
+        guard let requestedSection = model.spyNumberOfItemsInSection else {
+            return XCTFail("Did not ask model for number of items")
+        }
+        XCTAssertEqual(14, requestedSection)
+    }
+    
+    func test_numberOfItemsInTableSection_modelReturns3_returns3() {
+        model.stubNumberOfItemsInSection = 3
+        XCTAssertEqual(3, sut.numberOfItems(inTableSection: -1))
+    }
+    
+    func test_numberOfItemsInTableSection_modelReturns168_returns168() {
+        model.stubNumberOfItemsInSection = 168
+        XCTAssertEqual(168, sut.numberOfItems(inTableSection: 808))
+    }
+    
 }
 
 class PartialMockTableController: TableControlling {
@@ -48,6 +74,7 @@ class StubTableModel: TableModelling {
     var stubNumberOfItemsInSection = 0
     var spyNumberOfItemsInSection: Int? = nil
     func numberOfItems(inSection section: Int) -> Int {
+        spyNumberOfItemsInSection = section
         return stubNumberOfItemsInSection
     }
     

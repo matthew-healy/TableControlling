@@ -33,4 +33,8 @@ extension TableControlling {
     var numberOfSectionsInTable: Int {
         return model.numberOfSections
     }
+    
+    func numberOfItems(inTableSection section: Int) -> Int {
+        return model.numberOfItems(inSection: section)
+    }
 }
