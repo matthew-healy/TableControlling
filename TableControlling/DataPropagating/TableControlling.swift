@@ -28,3 +28,9 @@ protocol TableControlling {
     */
     var view: View { get }
 }
+
+extension TableControlling {
+    var numberOfSectionsInTable: Int {
+        return model.numberOfSections
+    }
+}
