@@ -31,7 +31,7 @@ protocol TableControlling {
     var view: View { get }
     
     func identifier(for indexPath: IndexPath) -> String
-    func configure(_ cell: CellView, with: Cell)
+    func configure(_ cell: CellView, with model: Cell)
 }
 
 extension TableControlling {
@@ -41,5 +41,24 @@ extension TableControlling {
     
     func numberOfItems(inTableSection section: Int) -> Int {
         return model.numberOfItems(inSection: section)
+    }
+}
+
+extension TableControlling where
+    CellView == UITableViewCell,
+    Cell == Model.Cell,
+    View: CellDequeueing
+{
+    func tableCell(forRowAt indexPath: IndexPath) -> UITableViewCell? {
+        guard let cellModel = model.item(at: indexPath) else {
+            return nil
+        }
+        let id = identifier(for: indexPath)
+        let cell = view.dequeueReusableCell(
+            withIdentifier: id,
+            for: indexPath
+        )
+        configure(cell, with: cellModel)
+        return cell
     }
 }

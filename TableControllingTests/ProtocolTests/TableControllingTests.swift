@@ -3,12 +3,14 @@ import XCTest
 
 class TableControllingTests: XCTestCase {
     
-    var model: StubTableModel!
-    var sut: PartialMockTableController!
+    private var model: StubTableModel!
+    private var view: MockView!
+    private var sut: PartialMockTableController!
     
     override func setUp() {
         model = StubTableModel()
-        sut = PartialMockTableController(model: model, view: "")
+        view = MockView()
+        sut = PartialMockTableController(model: model, view: view)
     }
     
     // MARK: numberOfSectionsInTable tests
@@ -51,9 +53,76 @@ class TableControllingTests: XCTestCase {
         XCTAssertEqual(168, sut.numberOfItems(inTableSection: 808))
     }
     
+    // MARK: tableCell(forRowAt:) tests
+    
+    func test_tableCellForRowAt_row0Section0_modelItemIsNil_returnsNil() {
+        model.stubItemAtIndexPath = nil
+        XCTAssertNil(sut.tableCell(forRowAt: IndexPath(row: 0, section: 0)))
+    }
+    
+    func test_tableCellForRowAt_row0Section0_modelItemHAM_configuresCellWithHAM() {
+        model.stubItemAtIndexPath = "HAM"
+        _ = sut.tableCell(forRowAt: IndexPath(row: 0, section: 0))
+        XCTAssertEqual("HAM", sut.spyCellModel)
+    }
+    
+    func test_tableCellForForAt_modelNonNil_dequeuesCell() {
+        _ = sut.tableCell(forRowAt: IndexPath(row: 0, section: 0))
+        XCTAssertTrue(view.didDequeueReusableCell)
+    }
+    
+    func test_tableCellForRowAt_row9Section9_getsIdentiiferForRow9Section9() {
+        let expected = IndexPath(row: 9, section: 9)
+        _ = sut.tableCell(forRowAt: expected)
+        XCTAssertEqual(expected, sut.spyIdentifierIndexPath)
+    }
+    
+    func test_tableCellForRowAt_row1Section12_getsIdentifierForRow1Section12() {
+        let expected = IndexPath(row: 1, section: 12)
+        _ = sut.tableCell(forRowAt: expected)
+        XCTAssertEqual(expected, sut.spyIdentifierIndexPath)
+    }
+    
+    func test_tableCellForRowAt_row1Section12_dequeuesCellAtRow1Section12() {
+        let expected = IndexPath(row: 1, section: 12)
+        _ = sut.tableCell(forRowAt: expected)
+        XCTAssertEqual(expected, view.spyIndexPath)
+    }
+    
+    func test_tableCellForRowAt_row3Section2_dequeuesCellAtRow3Section2() {
+        let expected = IndexPath(row: 3, section: 2)
+        _ = sut.tableCell(forRowAt: expected)
+        XCTAssertEqual(expected, view.spyIndexPath)
+    }
+    
+    func test_tableCellForRowAt_identiiferYAS_dequeuesCellForIDYAS() {
+        sut.stubIdentifier = "YAS"
+        _ = sut.tableCell(forRowAt: IndexPath(row: 0, section: 0))
+        XCTAssertEqual("YAS", view.spyIdentifier)
+    }
+    
+    func test_tableCellForRowAt_identifierBOOP_dequeuesCellForIDBOOP() {
+        sut.stubIdentifier = "BOOP"
+        _ = sut.tableCell(forRowAt: IndexPath(row: 1, section: 14))
+        XCTAssertEqual("BOOP", view.spyIdentifier)
+    }
+    
+    func test_tableCellForRowAt_always_configuresDequeuedCell() {
+        let expected = UITableViewCell()
+        view.stubReusableCell = expected
+        _ = sut.tableCell(forRowAt: IndexPath(row: 0, section: 0))
+        XCTAssertTrue(expected === sut.spyConfigureCell)
+    }
+    
+    func test_tableCellForRowAt_always_returnsDequeuedCell() {
+        let expected = UITableViewCell()
+        view.stubReusableCell = expected
+        let actual = sut.tableCell(forRowAt: IndexPath(row: 0, section: 0))
+        XCTAssertTrue(expected === actual)
+    }
 }
 
-class PartialMockTableController: TableControlling {
+private class PartialMockTableController: TableControlling {
     typealias Header = String
     typealias SectionHeader = String
     typealias Cell = String
@@ -61,15 +130,33 @@ class PartialMockTableController: TableControlling {
     typealias Footer = String
     
     var model: StubTableModel
-    let view: String
+    let view: MockView
     
-    init(model: StubTableModel, view: String) {
+    init(model: StubTableModel, view: MockView) {
         self.model = model
         self.view = view
     }
+    
+    var didGetIdentifier = false
+    var spyIdentifierIndexPath: IndexPath?
+    var stubIdentifier = ""
+    func identifier(for indexPath: IndexPath) -> String {
+        didGetIdentifier = true
+        spyIdentifierIndexPath = indexPath
+        return stubIdentifier
+    }
+    
+    var didConfigureCell = false
+    var spyConfigureCell: UITableViewCell?
+    var spyCellModel: String?
+    func configure(_ cell: UITableViewCell, with model: String) {
+        didConfigureCell = true
+        spyConfigureCell = cell
+        spyCellModel = model
+    }
 }
 
-class StubTableModel: TableModelling {
+private class StubTableModel: TableModelling {
     var stubNumberOfSections = 0
     var numberOfSections: Int {
         return stubNumberOfSections
@@ -82,8 +169,21 @@ class StubTableModel: TableModelling {
         return stubNumberOfItemsInSection
     }
     
-    var stubItemAtIndexPath: String? = nil
+    var stubItemAtIndexPath: String? = ""
     func item(at indexPath: IndexPath) -> String? {
         return stubItemAtIndexPath
+    }
+}
+
+private class MockView: CellDequeueing {
+    var spyIdentifier: String?
+    var spyIndexPath: IndexPath?
+    var didDequeueReusableCell = false
+    var stubReusableCell: UITableViewCell?
+    func dequeueReusableCell(withIdentifier identifier: String, for indexPath: IndexPath) -> UITableViewCell {
+        didDequeueReusableCell = true
+        spyIdentifier = identifier
+        spyIndexPath = indexPath
+        return stubReusableCell ?? UITableViewCell()
     }
 }
