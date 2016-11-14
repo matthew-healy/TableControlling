@@ -11,12 +11,14 @@
 protocol TableControlling {
     associatedtype Model: TableModelling
     associatedtype View
+    associatedtype CellView
     
     associatedtype Header: Equatable
     associatedtype SectionHeader: Equatable
     associatedtype Cell: Equatable
     associatedtype SectionFooter: Equatable
     associatedtype Footer: Equatable
+    
     
     /**
      The view model underlying the table.
@@ -27,6 +29,9 @@ protocol TableControlling {
      The table view which is being controlled.
     */
     var view: View { get }
+    
+    func identifier(for indexPath: IndexPath) -> String
+    func configure(_ cell: CellView, with: Cell)
 }
 
 extension TableControlling {
