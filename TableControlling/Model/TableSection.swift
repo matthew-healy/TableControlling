@@ -23,6 +23,15 @@ struct TableSection<Header: Equatable, Cell: Equatable, Footer: Equatable>: Equa
         self.footer = footer
     }
     
+    static func ==<Header: Equatable, Cell: Equatable, Footer: Equatable>(
+        lhs: TableSection<Header, Cell, Footer>,
+        rhs: TableSection<Header, Cell, Footer>
+    ) -> Bool {
+        return lhs.header == rhs.header
+            && lhs.cells == rhs.cells
+            && lhs.footer == rhs.footer
+    }
+    
     /**
      The number of items in the `TableSection`.
     */
@@ -41,13 +50,5 @@ struct TableSection<Header: Equatable, Cell: Equatable, Footer: Equatable>: Equa
         guard let cell = cells[safe: row] else { return nil }
         return cell
     }
-}
-
-func ==<Header: Equatable, Cell: Equatable, Footer: Equatable>(
-    lhs: TableSection<Header, Cell, Footer>,
-    rhs: TableSection<Header, Cell, Footer>
-) -> Bool {
-    return lhs.header == rhs.header
-        && lhs.cells == rhs.cells
-        && lhs.footer == rhs.footer
+    
 }

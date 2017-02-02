@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		341535471DB81A9800CD2A2F /* StaticTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341535461DB81A9800CD2A2F /* StaticTable.swift */; };
 		341535491DB81AAB00CD2A2F /* StaticTableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341535481DB81AAB00CD2A2F /* StaticTableTests.swift */; };
+		341C1D691DDA559000D8C094 /* CellDequeueing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341C1D661DDA559000D8C094 /* CellDequeueing.swift */; };
+		341C1D6A1DDA559000D8C094 /* TableControlling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341C1D671DDA559000D8C094 /* TableControlling.swift */; };
+		341C1D6B1DDA559000D8C094 /* TableModelling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341C1D681DDA559000D8C094 /* TableModelling.swift */; };
 		341DECA21DC27B7000A734A3 /* AssertSymmetricallyEqual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341DECA11DC27B7000A734A3 /* AssertSymmetricallyEqual.swift */; };
 		345B4E711DB3DB6D001D1BB1 /* TableControlling.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 345B4E671DB3DB6D001D1BB1 /* TableControlling.framework */; };
 		345B4E781DB3DB6D001D1BB1 /* TableControlling.h in Headers */ = {isa = PBXBuildFile; fileRef = 345B4E6A1DB3DB6D001D1BB1 /* TableControlling.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -21,6 +24,7 @@
 		345EEF3B1DC21A1E0035678B /* DynamicTableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345EEF3A1DC21A1E0035678B /* DynamicTableTests.swift */; };
 		3494767D1DB4220C00D5DC99 /* CollectionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3494767C1DB4220C00D5DC99 /* CollectionExtension.swift */; };
 		349476801DB4223000D5DC99 /* CollectionExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3494767F1DB4223000D5DC99 /* CollectionExtensionTests.swift */; };
+		34999D5C1DD50428003555B2 /* TableControllingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34999D5B1DD50428003555B2 /* TableControllingTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +40,9 @@
 /* Begin PBXFileReference section */
 		341535461DB81A9800CD2A2F /* StaticTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticTable.swift; sourceTree = "<group>"; };
 		341535481DB81AAB00CD2A2F /* StaticTableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticTableTests.swift; sourceTree = "<group>"; };
+		341C1D661DDA559000D8C094 /* CellDequeueing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CellDequeueing.swift; path = TableControlling/Protocols/CellDequeueing.swift; sourceTree = SOURCE_ROOT; };
+		341C1D671DDA559000D8C094 /* TableControlling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableControlling.swift; path = TableControlling/Protocols/TableControlling.swift; sourceTree = SOURCE_ROOT; };
+		341C1D681DDA559000D8C094 /* TableModelling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableModelling.swift; path = TableControlling/Protocols/TableModelling.swift; sourceTree = SOURCE_ROOT; };
 		341DECA11DC27B7000A734A3 /* AssertSymmetricallyEqual.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssertSymmetricallyEqual.swift; sourceTree = "<group>"; };
 		345B4E671DB3DB6D001D1BB1 /* TableControlling.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TableControlling.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		345B4E6A1DB3DB6D001D1BB1 /* TableControlling.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableControlling.h; sourceTree = "<group>"; };
@@ -51,6 +58,7 @@
 		345EEF3A1DC21A1E0035678B /* DynamicTableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicTableTests.swift; sourceTree = "<group>"; };
 		3494767C1DB4220C00D5DC99 /* CollectionExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionExtension.swift; sourceTree = "<group>"; };
 		3494767F1DB4223000D5DC99 /* CollectionExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionExtensionTests.swift; sourceTree = "<group>"; };
+		34999D5B1DD50428003555B2 /* TableControllingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableControllingTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +131,7 @@
 				341535441DB81A5200CD2A2F /* State */,
 				3494767B1DB4220C00D5DC99 /* StdLibExtension */,
 				345B4E821DB3DD9E001D1BB1 /* Model */,
+				34F777F51DC774C000D8A529 /* Protocols */,
 				345B4E6A1DB3DB6D001D1BB1 /* TableControlling.h */,
 				345B4E6B1DB3DB6D001D1BB1 /* Info.plist */,
 			);
@@ -136,6 +145,7 @@
 				341535451DB81A5C00CD2A2F /* StateTests */,
 				3494767E1DB4223000D5DC99 /* StdLibExtensionTests */,
 				345B4E811DB3DD91001D1BB1 /* ModelTests */,
+				34999D581DD503B7003555B2 /* ProtocolTests */,
 				345B4E771DB3DB6D001D1BB1 /* Info.plist */,
 			);
 			path = TableControllingTests;
@@ -174,6 +184,25 @@
 				3494767F1DB4223000D5DC99 /* CollectionExtensionTests.swift */,
 			);
 			path = StdLibExtensionTests;
+			sourceTree = "<group>";
+		};
+		34999D581DD503B7003555B2 /* ProtocolTests */ = {
+			isa = PBXGroup;
+			children = (
+				34999D5B1DD50428003555B2 /* TableControllingTests.swift */,
+			);
+			path = ProtocolTests;
+			sourceTree = "<group>";
+		};
+		34F777F51DC774C000D8A529 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				341C1D661DDA559000D8C094 /* CellDequeueing.swift */,
+				341C1D671DDA559000D8C094 /* TableControlling.swift */,
+				341C1D681DDA559000D8C094 /* TableModelling.swift */,
+			);
+			name = Protocols;
+			path = DataPropagating;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +262,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Matthew Healy";
 				TargetAttributes = {
 					345B4E661DB3DB6D001D1BB1 = {
@@ -288,8 +317,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				341C1D691DDA559000D8C094 /* CellDequeueing.swift in Sources */,
+				341C1D6A1DDA559000D8C094 /* TableControlling.swift in Sources */,
 				345EEF391DC219FF0035678B /* DynamicTable.swift in Sources */,
 				341535471DB81A9800CD2A2F /* StaticTable.swift in Sources */,
+				341C1D6B1DDA559000D8C094 /* TableModelling.swift in Sources */,
 				3494767D1DB4220C00D5DC99 /* CollectionExtension.swift in Sources */,
 				345B4E8E1DB3E8F3001D1BB1 /* Table.swift in Sources */,
 				345B4E8A1DB3E056001D1BB1 /* TableSection.swift in Sources */,
@@ -303,6 +335,7 @@
 			files = (
 				341535491DB81AAB00CD2A2F /* StaticTableTests.swift in Sources */,
 				345B4E8C1DB3E8E9001D1BB1 /* TableTests.swift in Sources */,
+				34999D5C1DD50428003555B2 /* TableControllingTests.swift in Sources */,
 				341DECA21DC27B7000A734A3 /* AssertSymmetricallyEqual.swift in Sources */,
 				349476801DB4223000D5DC99 /* CollectionExtensionTests.swift in Sources */,
 				345EEF3B1DC21A1E0035678B /* DynamicTableTests.swift in Sources */,
@@ -339,6 +372,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -392,6 +426,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
