@@ -19,7 +19,6 @@ protocol TableControlling {
     associatedtype SectionFooter: Equatable
     associatedtype Footer: Equatable
     
-    
     /**
      The view model underlying the table.
     */
@@ -35,10 +34,20 @@ protocol TableControlling {
 }
 
 extension TableControlling {
+    /**
+     The number of sections the table currently contains.
+
+     This is designed to be returned from `numberOfSections(in:)`.
+    */
     var numberOfSectionsInTable: Int {
         return model.numberOfSections
     }
     
+    /**
+     The number of items in the given section of the table.
+
+     This is designed to be called from `tableView(_:numberOfRowsInSection:)`.
+    */
     func numberOfItems(inTableSection section: Int) -> Int {
         return model.numberOfItems(inSection: section)
     }
@@ -49,6 +58,11 @@ extension TableControlling where
     Cell == Model.Cell,
     View: CellDequeueing
 {
+    /**
+     The cell to be displayed at the given index path.
+
+     This is designed to be called from `tableView(_:cellForRowAt:)`
+    */
     func tableCell(forRowAt indexPath: IndexPath) -> UITableViewCell? {
         guard let cellModel = model.item(at: indexPath) else {
             return nil
