@@ -4,12 +4,12 @@ import XCTest
 class TableControllingTests: XCTestCase {
     
     private var model: StubTableModel!
-    private var view: MockView!
+    private var view: MockCellDequeueing!
     private var sut: PartialMockTableController!
     
     override func setUp() {
         model = StubTableModel()
-        view = MockView()
+        view = MockCellDequeueing()
         sut = PartialMockTableController(model: model, view: view)
     }
     
@@ -130,9 +130,9 @@ private class PartialMockTableController: TableControlling {
     typealias Footer = String
     
     var model: StubTableModel
-    let view: MockView
+    let view: MockCellDequeueing
     
-    init(model: StubTableModel, view: MockView) {
+    init(model: StubTableModel, view: MockCellDequeueing) {
         self.model = model
         self.view = view
     }
@@ -175,7 +175,7 @@ private class StubTableModel: TableModelling {
     }
 }
 
-private class MockView: CellDequeueing {
+private class MockCellDequeueing: CellDequeueing {
     var spyIdentifier: String?
     var spyIndexPath: IndexPath?
     var didDequeueReusableCell = false
