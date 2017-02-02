@@ -33,6 +33,19 @@ struct Table<
         self.footer = footer
     }
     
+    static func ==<
+        Header: Equatable,
+        SectionHeader: Equatable, Cell: Equatable, SectionFooter: Equatable,
+        Footer: Equatable
+    >(
+        lhs: Table<Header, SectionHeader, Cell, SectionFooter, Footer>,
+        rhs: Table<Header, SectionHeader, Cell, SectionFooter, Footer>
+    ) -> Bool {
+        return lhs.header == rhs.header
+            && lhs.sections == rhs.sections
+            && lhs.footer == rhs.footer
+    }
+    
     /**
      The number of sections in the `Table`.
     */
@@ -62,17 +75,4 @@ struct Table<
         let (section, row) = (indexPath.section, indexPath.row)
         return sections[safe: section]?.item(atRow: row)
     }
-}
-
-func ==<
-    Header: Equatable,
-    SectionHeader: Equatable, Cell: Equatable, SectionFooter: Equatable,
-    Footer: Equatable
-    >(
-    lhs: Table<Header, SectionHeader, Cell, SectionFooter, Footer>,
-    rhs: Table<Header, SectionHeader, Cell, SectionFooter, Footer>
-) -> Bool {
-    return lhs.header == rhs.header
-        && lhs.sections == rhs.sections
-        && lhs.footer == rhs.footer
 }

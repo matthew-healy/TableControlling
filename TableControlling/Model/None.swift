@@ -12,8 +12,10 @@
  In theory this won't need to exist in a future verison of Swift, once
  conditional protocol conformance is added.
 */
-enum None: Equatable {}
+enum None: Equatable {
 
-func ==(lhs: None, rhs: None) -> Bool {
-    return true
+    static func ==(lhs: None, rhs: None) -> Bool {
+        return true
+    }
+
 }

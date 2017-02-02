@@ -22,6 +22,23 @@ enum StaticTable<
         Table<Header, SectionHeader, Cell, SectionFooter, Footer>
     )
     
+    static func ==<
+        Header: Equatable,
+        SectionHeader: Equatable,
+        Cell: Equatable,
+        SectionFooter: Equatable,
+        Footer: Equatable
+    >(
+        lhs: StaticTable<Header, SectionHeader, Cell, SectionFooter, Footer>,
+        rhs: StaticTable<Header, SectionHeader, Cell, SectionFooter, Footer>
+    ) -> Bool {
+        switch (lhs, rhs) {
+        case (.ready, .ready): return true
+        case (.displaying(let lhsTable), .displaying(let rhsTable)): return lhsTable == rhsTable
+        default: return false
+        }
+    }
+    
     /**
      The number of sections in the underlying `Table`, or `0` if one is not displayed.
     */
@@ -54,22 +71,5 @@ enum StaticTable<
     func item(at indexPath: IndexPath) -> Cell? {
         guard case .displaying(let table) = self else { return nil }
         return table.item(at: indexPath)
-    }
-}
-
-func ==<
-    Header: Equatable,
-    SectionHeader: Equatable,
-    Cell: Equatable,
-    SectionFooter: Equatable,
-    Footer: Equatable
->(
-    lhs: StaticTable<Header, SectionHeader, Cell, SectionFooter, Footer>,
-    rhs: StaticTable<Header, SectionHeader, Cell, SectionFooter, Footer>
-) -> Bool {
-    switch (lhs, rhs) {
-    case (.ready, .ready): return true
-    case (.displaying(let lhsTable), .displaying(let rhsTable)): return lhsTable == rhsTable
-    default: return false
     }
 }

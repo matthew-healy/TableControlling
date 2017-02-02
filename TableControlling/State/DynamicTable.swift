@@ -27,6 +27,26 @@ enum DynamicTable<
     /// The table has `failed` to load. This is the appropriate state for which to show an error.
     case failed(Error)
     
+    static func ==<
+        Header: Equatable,
+        SectionHeader: Equatable,
+        Cell: Equatable,
+        SectionFooter: Equatable,
+        Footer: Equatable
+    >(
+        lhs: DynamicTable<Header, SectionHeader, Cell, SectionFooter, Footer>,
+        rhs: DynamicTable<Header, SectionHeader, Cell, SectionFooter, Footer>
+    ) -> Bool {
+        switch (lhs, rhs) {
+        case (.ready, .ready): return true
+        case (.loading, .loading): return true
+        case (.displaying(let lhsTable), .displaying(let rhsTable)): return lhsTable == rhsTable
+        case (.failed(let lhsError as NSError), .failed(let rhsError as NSError)):
+            return lhsError == rhsError
+        default: return false
+        }
+    }
+    
     /**
      The number of sections in the underlying `Table`, or `0` if one is not displayed.
     */
@@ -34,7 +54,6 @@ enum DynamicTable<
         guard case .displaying(let table) = self else { return 0 }
         return table.numberOfSections
     }
-    
     
     /**
      The number of `Cell`s in the given section of the underlying `Table`.
@@ -61,25 +80,5 @@ enum DynamicTable<
     func item(at indexPath: IndexPath) -> Cell? {
         guard case .displaying(let table) = self else { return nil }
         return table.item(at: indexPath)
-    }
-}
-
-func ==<
-    Header: Equatable,
-    SectionHeader: Equatable,
-    Cell: Equatable,
-    SectionFooter: Equatable,
-    Footer: Equatable
->(
-    lhs: DynamicTable<Header, SectionHeader, Cell, SectionFooter, Footer>,
-    rhs: DynamicTable<Header, SectionHeader, Cell, SectionFooter, Footer>
-) -> Bool {
-    switch (lhs, rhs) {
-    case (.ready, .ready): return true
-    case (.loading, .loading): return true
-    case (.displaying(let lhsTable), .displaying(let rhsTable)): return lhsTable == rhsTable
-    case (.failed(let lhsError as NSError), .failed(let rhsError as NSError)):
-        return lhsError == rhsError
-    default: return false
     }
 }
