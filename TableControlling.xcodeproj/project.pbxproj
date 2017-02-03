@@ -28,6 +28,7 @@
 		3494767D1DB4220C00D5DC99 /* CollectionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3494767C1DB4220C00D5DC99 /* CollectionExtension.swift */; };
 		349476801DB4223000D5DC99 /* CollectionExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3494767F1DB4223000D5DC99 /* CollectionExtensionTests.swift */; };
 		34999D5C1DD50428003555B2 /* TableControllingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34999D5B1DD50428003555B2 /* TableControllingTests.swift */; };
+		34EDC2791E44F8680046AB57 /* TableHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EDC2781E44F8680046AB57 /* TableHandling.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		3494767C1DB4220C00D5DC99 /* CollectionExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionExtension.swift; sourceTree = "<group>"; };
 		3494767F1DB4223000D5DC99 /* CollectionExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionExtensionTests.swift; sourceTree = "<group>"; };
 		34999D5B1DD50428003555B2 /* TableControllingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableControllingTests.swift; sourceTree = "<group>"; };
+		34EDC2781E44F8680046AB57 /* TableHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableHandling.swift; path = TableControllingTests/ProtocolTests/TableHandling.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +211,7 @@
 				341C1D681DDA559000D8C094 /* TableModelling.swift */,
 				3421FE591E4394C900D1B359 /* DataReloadable.swift */,
 				3421FE5D1E4397BE00D1B359 /* TableUpdating.swift */,
+				34EDC2781E44F8680046AB57 /* TableHandling.swift */,
 			);
 			name = Protocols;
 			path = DataPropagating;
@@ -333,6 +336,7 @@
 				345EEF391DC219FF0035678B /* DynamicTable.swift in Sources */,
 				341535471DB81A9800CD2A2F /* StaticTable.swift in Sources */,
 				341C1D6B1DDA559000D8C094 /* TableModelling.swift in Sources */,
+				34EDC2791E44F8680046AB57 /* TableHandling.swift in Sources */,
 				3494767D1DB4220C00D5DC99 /* CollectionExtension.swift in Sources */,
 				345B4E8E1DB3E8F3001D1BB1 /* Table.swift in Sources */,
 				345B4E8A1DB3E056001D1BB1 /* TableSection.swift in Sources */,

@@ -1,16 +1,8 @@
-protocol TableUpdating {
-    associatedtype Model
-    associatedtype View
-
-    associatedtype Header: Equatable
-    associatedtype SectionHeader: Equatable
-    associatedtype Cell: Equatable
-    associatedtype SectionFooter: Equatable
-    associatedtype Footer: Equatable
-
-    var model: Model { get }
-    var view: View { get }
-
+/**
+ A type which is able to update the display of a `UITableView` based on
+ the state of its model.
+*/
+protocol TableUpdating: TableHandling {
     func update()
 }
 
