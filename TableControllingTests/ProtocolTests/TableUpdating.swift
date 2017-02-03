@@ -18,11 +18,22 @@ extension TableUpdating where
     Model == StaticTable<Header, SectionHeader, Cell, SectionFooter, Footer>,
     View: DataReloadable
 {
-    typealias ContextualTable = StaticTable<Header, SectionHeader, Cell, SectionFooter, Footer>
     func update() {
         guard case .displaying = model else {
             return
         }
         view.reloadData()
+    }
+}
+
+extension TableUpdating where
+    Model == DynamicTable<Header, SectionHeader, Cell, SectionFooter, Footer>,
+    View: DataReloadable
+{
+    func update() {
+        switch model {
+        case .displaying(_): view.reloadData()
+        default: return
+        }
     }
 }
