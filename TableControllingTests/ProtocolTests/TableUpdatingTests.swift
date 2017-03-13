@@ -58,7 +58,7 @@ private class PartialMockStaticTableUpdating: TableUpdating {
     typealias SectionFooter = None
     typealias Footer = None
     
-    let model: BlankStaticTable
+    var model: BlankStaticTable
     let view: MockDataReloadable
 
     init(model: BlankStaticTable, view: MockDataReloadable) {
@@ -83,7 +83,7 @@ private class PartialMockDynamicTableUpdating: TableUpdating {
     typealias SectionFooter = None
     typealias Footer = None
     
-    let model: BlankDynamicTable
+    var model: BlankDynamicTable
     let view: MockDataReloadable
     
     init(model: BlankDynamicTable, view: MockDataReloadable) {
