@@ -51,10 +51,3 @@ private class PartialMockDynamicTableUpdating: DynamicTableUpdating {
         didCallTableViewDidBeginLoading = true
     }
 }
-
-private class MockDataReloadable: DataReloadable {
-    var didReloadData = false
-    func reloadData() {
-        didReloadData = true
-    }
-}

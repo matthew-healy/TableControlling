@@ -46,10 +46,3 @@ private class PartialMockStaticTableUpdating: StaticTableUpdating {
         self.view = view
     }
 }
-
-private class MockDataReloadable: DataReloadable {
-    var didReloadData = false
-    func reloadData() {
-        didReloadData = true
-    }
-}

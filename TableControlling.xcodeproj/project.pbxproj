@@ -28,6 +28,8 @@
 		3491A9821E773DBA00DC4380 /* TableModelling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491A97B1E773DBA00DC4380 /* TableModelling.swift */; };
 		3491A9861E773DDF00DC4380 /* DynamicTableUpdating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491A9841E773DDF00DC4380 /* DynamicTableUpdating.swift */; };
 		3491A9871E773DDF00DC4380 /* StaticTableUpdating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491A9851E773DDF00DC4380 /* StaticTableUpdating.swift */; };
+		3491A98A1E773E3400DC4380 /* MockDataReloadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491A9891E773E3400DC4380 /* MockDataReloadable.swift */; };
+		3491A98C1E773E9B00DC4380 /* MockCellDequeueing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491A98B1E773E9B00DC4380 /* MockCellDequeueing.swift */; };
 		3494767D1DB4220C00D5DC99 /* CollectionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3494767C1DB4220C00D5DC99 /* CollectionExtension.swift */; };
 		349476801DB4223000D5DC99 /* CollectionExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3494767F1DB4223000D5DC99 /* CollectionExtensionTests.swift */; };
 		34999D5C1DD50428003555B2 /* TableControllingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34999D5B1DD50428003555B2 /* TableControllingTests.swift */; };
@@ -68,6 +70,8 @@
 		3491A97B1E773DBA00DC4380 /* TableModelling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableModelling.swift; sourceTree = "<group>"; };
 		3491A9841E773DDF00DC4380 /* DynamicTableUpdating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicTableUpdating.swift; sourceTree = "<group>"; };
 		3491A9851E773DDF00DC4380 /* StaticTableUpdating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticTableUpdating.swift; sourceTree = "<group>"; };
+		3491A9891E773E3400DC4380 /* MockDataReloadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockDataReloadable.swift; sourceTree = "<group>"; };
+		3491A98B1E773E9B00DC4380 /* MockCellDequeueing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockCellDequeueing.swift; sourceTree = "<group>"; };
 		3494767C1DB4220C00D5DC99 /* CollectionExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionExtension.swift; sourceTree = "<group>"; };
 		3494767F1DB4223000D5DC99 /* CollectionExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionExtensionTests.swift; sourceTree = "<group>"; };
 		34999D5B1DD50428003555B2 /* TableControllingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableControllingTests.swift; sourceTree = "<group>"; };
@@ -153,6 +157,7 @@
 		345B4E741DB3DB6D001D1BB1 /* TableControllingTests */ = {
 			isa = PBXGroup;
 			children = (
+				3491A9881E773E2200DC4380 /* Mocks */,
 				341DECA01DC27B1000A734A3 /* TestHelpers */,
 				341535451DB81A5C00CD2A2F /* StateTests */,
 				3494767E1DB4223000D5DC99 /* StdLibExtensionTests */,
@@ -202,6 +207,15 @@
 				3491A9851E773DDF00DC4380 /* StaticTableUpdating.swift */,
 			);
 			path = TableUpdating;
+			sourceTree = "<group>";
+		};
+		3491A9881E773E2200DC4380 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				3491A9891E773E3400DC4380 /* MockDataReloadable.swift */,
+				3491A98B1E773E9B00DC4380 /* MockCellDequeueing.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		3494767B1DB4220C00D5DC99 /* StdLibExtension */ = {
@@ -365,7 +379,9 @@
 				341535491DB81AAB00CD2A2F /* StaticTableTests.swift in Sources */,
 				345B4E8C1DB3E8E9001D1BB1 /* TableTests.swift in Sources */,
 				34999D5C1DD50428003555B2 /* TableControllingTests.swift in Sources */,
+				3491A98C1E773E9B00DC4380 /* MockCellDequeueing.swift in Sources */,
 				341DECA21DC27B7000A734A3 /* AssertSymmetricallyEqual.swift in Sources */,
+				3491A98A1E773E3400DC4380 /* MockDataReloadable.swift in Sources */,
 				343F6F261E7739DA001CB7EC /* DynamicTableUpdatingTests.swift in Sources */,
 				349476801DB4223000D5DC99 /* CollectionExtensionTests.swift in Sources */,
 				3421FE5C1E43976100D1B359 /* StaticTableUpdatingTests.swift in Sources */,

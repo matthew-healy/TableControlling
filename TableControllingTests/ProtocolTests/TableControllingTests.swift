@@ -174,16 +174,3 @@ private class StubTableModel: TableModelling {
         return stubItemAtIndexPath
     }
 }
-
-private class MockCellDequeueing: CellDequeueing {
-    var spyIdentifier: String?
-    var spyIndexPath: IndexPath?
-    var didDequeueReusableCell = false
-    var stubReusableCell: UITableViewCell?
-    func dequeueReusableCell(withIdentifier identifier: String, for indexPath: IndexPath) -> UITableViewCell {
-        didDequeueReusableCell = true
-        spyIdentifier = identifier
-        spyIndexPath = indexPath
-        return stubReusableCell ?? UITableViewCell()
-    }
-}
