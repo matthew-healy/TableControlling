@@ -66,7 +66,7 @@ class TableControllingTests: XCTestCase {
         XCTAssertEqual("HAM", sut.spyCellModel)
     }
     
-    func test_tableCellForForAt_modelNonNil_dequeuesCell() {
+    func test_tableCellForRowAt_modelNonNil_dequeuesCell() {
         _ = sut.tableCell(forRowAt: IndexPath(row: 0, section: 0))
         XCTAssertTrue(view.didDequeueReusableCell)
     }
