@@ -95,7 +95,6 @@ class TableSectionTests: XCTestCase {
 }
 
 extension TableSection {
-    
     static func create(
         header: Header? = nil,
         cells: [Cell] = [],
@@ -103,5 +102,4 @@ extension TableSection {
     ) -> TableSection<Header, Cell, Footer> {
         return TableSection(header: header, cells: cells, footer: footer)
     }
-    
 }

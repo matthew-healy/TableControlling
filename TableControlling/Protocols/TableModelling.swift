@@ -1,5 +1,3 @@
-import Foundation
-
 /**
  A type that models a `UITableView`.
  

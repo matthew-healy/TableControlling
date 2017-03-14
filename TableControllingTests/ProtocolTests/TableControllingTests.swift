@@ -4,12 +4,12 @@ import XCTest
 class TableControllingTests: XCTestCase {
     
     private var model: StubTableModel!
-    private var view: MockView!
+    private var view: MockCellDequeueing!
     private var sut: PartialMockTableController!
     
     override func setUp() {
         model = StubTableModel()
-        view = MockView()
+        view = MockCellDequeueing()
         sut = PartialMockTableController(model: model, view: view)
     }
     
@@ -66,7 +66,7 @@ class TableControllingTests: XCTestCase {
         XCTAssertEqual("HAM", sut.spyCellModel)
     }
     
-    func test_tableCellForForAt_modelNonNil_dequeuesCell() {
+    func test_tableCellForRowAt_modelNonNil_dequeuesCell() {
         _ = sut.tableCell(forRowAt: IndexPath(row: 0, section: 0))
         XCTAssertTrue(view.didDequeueReusableCell)
     }
@@ -130,9 +130,9 @@ private class PartialMockTableController: TableControlling {
     typealias Footer = String
     
     var model: StubTableModel
-    let view: MockView
+    let view: MockCellDequeueing
     
-    init(model: StubTableModel, view: MockView) {
+    init(model: StubTableModel, view: MockCellDequeueing) {
         self.model = model
         self.view = view
     }
@@ -172,18 +172,5 @@ private class StubTableModel: TableModelling {
     var stubItemAtIndexPath: String? = ""
     func item(at indexPath: IndexPath) -> String? {
         return stubItemAtIndexPath
-    }
-}
-
-private class MockView: CellDequeueing {
-    var spyIdentifier: String?
-    var spyIndexPath: IndexPath?
-    var didDequeueReusableCell = false
-    var stubReusableCell: UITableViewCell?
-    func dequeueReusableCell(withIdentifier identifier: String, for indexPath: IndexPath) -> UITableViewCell {
-        didDequeueReusableCell = true
-        spyIdentifier = identifier
-        spyIndexPath = indexPath
-        return stubReusableCell ?? UITableViewCell()
     }
 }
